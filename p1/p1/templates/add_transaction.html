@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2>添加交易记录</h2>
+    <form method="post" class="transaction-form">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label>{{ form.transaction_type.label }}</label>
+            {{ form.transaction_type }}
+            {{ form.transaction_type.errors }}
+        </div>
+        
+        <div class="form-group">
+            <label>{{ form.amount.label }}</label>
+            {{ form.amount }}
+            {{ form.amount.errors }}
+        </div>
+        
+        <div class="form-group">
+            <label>{{ form.description.label }}</label>
+            {{ form.description }}
+            {{ form.description.errors }}
+        </div>
+        
+        <div class="form-group">
+            <label>{{ form.status.label }}</label>
+            {{ form.status }}
+            {{ form.status.errors }}
+        </div>
+        
+        <div class="form-group">
+            <label>{{ form.counterparty.label }}</label>
+            {{ form.counterparty }}
+            {{ form.counterparty.errors }}
+        </div>
+        
+        <div class="form-group">
+            <label>{{ form.counterparty_account.label }}</label>
+            {{ form.counterparty_account }}
+            {{ form.counterparty_account.errors }}
+        </div>
+        
+        <button type="submit" class="btn btn-primary">提交</button>
+        <a href="{% url 'mymoney' %}" class="btn btn-secondary">取消</a>
+    </form>
+</div>
+
+<style>
+    .transaction-form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    select, input, textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .btn {
+        padding: 8px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        border: none;
+    }
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+</style>
+{% endblock %}

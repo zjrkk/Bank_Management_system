@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>欢迎页面</title>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index2.css' %}">
+
+
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    {% include 'head_nav.html' %}
+
+
+    <h1>欢迎 {{ username }} 登录成功！</h1>
+
+    <!-- 轮播视频容器 -->
+    <div style="margin-top: 50px;" class="video-carousel" id="videoCarousel">
+        <!-- 轮播视频内部容器，包含多个轮播项 -->
+        <div class="carousel-inner" id="carouselInner">
+            <!-- 第一个轮播项，设置为激活状态 -->
+            <div class="carousel-item active">
+                <!-- 视频元素，添加 controls 属性可显示播放控件用于手动关闭，autoplay 使视频自动播放 -->
+                <video id="video1" class="video-item" controls autoplay muted>
+                    <source src="{% static 'videos/zhapian1.mp4' %}" type="video/mp4">
+                </video>
+                <!-- 轮播项的标题和描述 -->
+            </div>
+            <!-- 第二个轮播项 -->
+            <div class="carousel-item">
+                <video id="video2" class="video-item" controls muted>
+                    <source src="{% static 'videos/zhapian2.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+            <div class="carousel-item">
+                <video id="video3" class="video-item" controls muted>
+                    <source src="{% static 'videos/zhapian3.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <!-- 轮播图上一张按钮 -->
+        <a class="carousel-control-prev" href="#" role="button" onclick="prevVideo()">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <!-- 轮播图下一张按钮 -->
+        <a class="carousel-control-next" href="#" role="button" onclick="nextVideo()">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- 服务板块 -->
+    <div class="service-section">
+        <div class="service-item">
+            <img src="{% static 'images/xinyongcard1.gif' %}"alt="信用卡">
+            <div class="service-text">
+                <h3>信用卡</h3>
+                <p>信用卡推荐 安全用卡</p>
+            </div>
+            <a href="http://127.0.0.1:8000/credit/"><button>马上进入</button></a>
+        </div>
+        <div class="service-item">
+            <img src="{% static 'images/caifu.gif' %}" alt="财富">
+            <div class="service-text">
+                <h3>财富</h3>
+                <p>最新财经 财富贴士</p>
+            </div>
+            <a href="http://127.0.0.1:8000/wealth/"><button>马上进入</button></a>
+        </div>
+        <div class="service-item">
+            <img src="{% static 'images/shenghuo.gif' %}" alt="生活">
+            <div class="service-text">
+                <h3>生活</h3>
+                <p>银行服务 热门活动</p>
+            </div>
+            <a href="http://127.0.0.1:8000/life/"><button>马上进入</button></a>
+        </div>
+        <div class="service-item">
+            <img src="{% static 'images/wode.gif' %}" alt="我的">
+            <div class="service-text">
+                <h3>我的</h3>
+                <p>余额显示 银行办理</p>
+            </div>
+            <a href="http://127.0.0.1:8000/mine/"><button>马上进入</button></a>
+        </div>
+    </div>
+        </div> <!-- 服务板块结束标签 -->
+
+    <!-- 新增查询板块（左右分栏） -->
+    <div class="query-section" style="display: flex; justify-content: space-around; padding: 30px 0;">
+        <!-- 左边：账户查询 -->
+        <div class="query-item" style="text-align: center; width: 45%; background: #f8f9fa; padding: 20px; border-radius: 10px;">
+            <img src="{% static 'images/zhanghu.jpg' %}"
+                 alt="账户查询"
+                 style="width: 500px; height: 250px; margin-bottom: 15px;">
+            <h2 style="font-size: 1.3em; color: #333; margin: 10px 0 15px;">账户查询</h2>
+            <p style="font-size: 0.9em; color: #666; margin-bottom: 20px;">
+                实时查看账户余额、交易记录、资产分布
+            </p>
+            <a href="http://127.0.0.1:8000/mymoney/"
+               style="background-color: #007bff; color: white;
+                      padding: 10px 20px; border-radius: 25px;
+                      text-decoration: none; cursor: pointer;">
+                立即查询
+            </a>
+        </div>
+
+        <!-- 右边：网点查询 -->
+        <div class="query-item" style="text-align: center; width: 45%; background: #f8f9fa; padding: 20px; border-radius: 10px;">
+            <img src="{% static 'images/didain.jpg' %}"
+                 alt="网点查询"
+                 style="width: 500px; height: 250px; margin-bottom: 15px;">
+            <h2 style="font-size: 1.3em; color: #333; margin: 10px 0 15px;">网点查询</h2>
+            <p style="font-size: 0.9em; color: #666; margin-bottom: 20px;">
+                搜索附近网点、查看营业时间
+            </p>
+            <a href="https://map.baidu.com/search/%E9%93%B6%E8%A1%8C/@11606355.22000001,4669275.880000012,5z?querytype=s&da_src=shareurl&wd=%E9%93%B6%E8%A1%8C&c=1&src=0&pn=0&sug=0&l=6&b=(8994072.300017722,2997756.331447937;13572660.950420503,5487325.39573155)&from=webmap&biz_forward=%7B%22scaler%22:2,%22styles%22:%22pl%22%7D&device_ratio=2"
+               style="background-color: #007bff; color: white;
+                      padding: 10px 20px; border-radius: 25px;
+                      text-decoration: none; cursor: pointer;">
+                立即查询
+            </a>
+        </div>
+    </div>
+
+  <!-- 新闻资讯板块（关键部分） -->
+    <div class="news-section" style="padding: 30px 0;">
+        <h2 style="text-align: center; font-size: 1.5em; color: #333; margin-bottom: 20px;">新闻资讯</h2>
+        <div class="news-list" style="max-width: 1200px; margin: 0 auto;">
+            {% for article in news %}
+            <div class="news-item" style="margin: 15px 0; padding: 15px; border-bottom: 1px solid #eee;">
+                <h3 style="font-size: 1.2em; color: #333; margin-bottom: 8px;">
+                    <a href="{{ article.url }}" style="color: #333; text-decoration: none;">
+                        {{ article.title }}
+                    </a>
+                </h3>
+                <p style="font-size: 0.9em; color: #666;">
+                    {{ article.source }} | {{ article.publish_date }}
+                </p>
+            </div>
+            {% empty %}
+            <div class="news-item" style="text-align: center; padding: 20px;">
+                <p style="font-size: 1em; color: #999;">暂无新闻内容</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- 分页导航 -->
+        {% if news.paginator.num_pages > 1 %}
+        <div class="pagination" style="text-align: center; margin: 30px 0;">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item {% if not news.has_previous %}disabled{% endif %}">
+                        <a class="page-link" href="{% if news.has_previous %}?page={{ news.previous_page_number }}{% else %}#{% endif %}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    {% for num in news.paginator.page_range %}
+                        {% if num > news.number|add:'-3' and num < news.number|add:'3' %}
+                            <li class="page-item {% if news.number == num %}active{% endif %}">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    <li class="page-item {% if not news.has_next %}disabled{% endif %}">
+                        <a class="page-link" href="{% if news.has_next %}?page={{ news.next_page_number }}{% else %}#{% endif %}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item" style="list-style: none; margin-left: 10px;">
+                        <span class="page-link" style="border: none;">
+                            第 {{ news.number }} 页 / 共 {{ news.paginator.num_pages }} 页
+                        </span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 获取所有视频元素
+            const videos = document.querySelectorAll('.video-item');
+            // 获取轮播视频内部容器元素
+            const carouselInner = document.getElementById('carouselInner');
+            // 当前显示的视频索引，初始为 0
+            let currentIndex = 0;
+
+            // 为每个视频添加 ended 事件监听器，视频播放结束时调用 nextVideo 函数
+            videos.forEach((video, index) => {
+                video.addEventListener('ended', function () {
+                    nextVideo();
+                });
+            });
+
+            // 切换到下一个视频的函数
+            function nextVideo() {
+                // 计算下一个视频的索引，使用取模运算确保索引在有效范围内
+                currentIndex = (currentIndex + 1) % videos.length;
+                // 根据当前索引设置轮播容器的偏移量，实现轮播效果
+                carouselInner.style.transform = `translateX(-${currentIndex * (100 / videos.length)}%)`;
+                // 遍历所有视频
+                videos.forEach((video, index) => {
+                    if (index === currentIndex) {
+                        // 当前索引对应的视频开始播放
+                        video.play();
+                    } else {
+                        // 其他视频暂停并将播放进度重置为 0
+                        video.pause();
+                        video.currentTime = 0;
+                    }
+                });
+            }
+
+            // 切换到上一个视频的函数
+            function prevVideo() {
+                // 计算上一个视频的索引，使用取模运算确保索引在有效范围内
+                currentIndex = (currentIndex - 1 + videos.length) % videos.length;
+                // 根据当前索引设置轮播容器的偏移量，实现轮播效果
+                carouselInner.style.transform = `translateX(-${currentIndex * (100 / videos.length)}%)`;
+                // 遍历所有视频
+                videos.forEach((video, index) => {
+                    if (index === currentIndex) {
+                        // 当前索引对应的视频开始播放
+                        video.play();
+                    } else {
+                        // 其他视频暂停并将播放进度重置为 0
+                        video.pause();
+                        video.currentTime = 0;
+                    }
+                });
+            }
+
+            // 将 nextVideo 和 prevVideo 函数暴露到全局作用域，以便按钮的 onclick 事件可以调用
+            window.nextVideo = nextVideo;
+            window.prevVideo = prevVideo;
+        });
+    </script>
+    <footer class="navbar footer-bar">
+        <ul>
+            <li>小组作业</li>
+            <li></li>
+            <li>银行网站</li>
+        </ul>
+    </footer>
+</body>
+</html>

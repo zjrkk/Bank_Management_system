@@ -1,0 +1,206 @@
+ {% load static %}
+  /* 查询板块样式（左右分栏） */
+    /* 重置分页 ul 样式，让 li 横向排列 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* 按钮之间间距，替代 margin 更方便 */
+    list-style: none; /* 去掉默认列表样式（如果有） */
+    padding: 0;       /* 清除默认内边距 */
+    margin: 0;        /* 清除默认外边距 */
+}
+
+/* 分页按钮基础样式 */
+.page-item .page-link {
+    color: #6c757d; /* 按钮文字颜色，可自定义 */
+    border: 1px solid #dee2e6; /* 按钮边框 */
+    border-radius: 4px;        /* 圆角 */
+    padding: 6px 12px;         /* 按钮大小 */
+    text-decoration: none;     /* 去掉下划线 */
+    transition: all 0.2s ease; /*  hover 动画过渡 */
+}
+
+/* 当前页高亮样式 */
+.page-item.active .page-link {
+    background-color: #007bff; /* 高亮背景色，可改 */
+    color: #fff;               /* 高亮文字色 */
+    border-color: #007bff;     /* 高亮边框色 */
+}
+
+/* 禁用状态样式（上一页/下一页不可用时） */
+.page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: #fff;
+    border-color: #dee2e6;
+    cursor: not-allowed;
+}
+
+/* 鼠标悬停效果（可选，增强交互） */
+.page-item .page-link:hover {
+    background-color: #f8f9fa;
+    border-color: #007bff;
+    color: #007bff;
+}
+
+/* 页码信息样式（让文字和按钮协调） */
+.page-item .page-link {
+    border: none; /* 去掉页码信息的边框（如果需要） */
+    background: transparent;
+}
+.query-section {
+    background: #f8f9fa; /* 浅灰色背景区分板块 */
+}
+
+.query-item {
+    border-radius: 10px; /* 圆角容器 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 轻微阴影提升层次感 */
+}
+
+/* 新闻资讯板块样式 */
+.news-section {
+    padding: 30px 40px; /* 左右内边距适配大屏幕 */
+}
+
+.news-item h3 {
+    margin-bottom: 8px;
+}
+
+.news-item p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* 统一按钮样式（与服务板块保持一致） */
+.query-item a {
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.query-item a:hover {
+    background-color: #0056b3; /* 按钮悬停颜色 */
+}
+        /* 轮播视频容器样式 */
+       .video-carousel {
+            position: relative;
+            width: 80%; /* 增大轮播视频容器宽度 */
+            margin: 0 auto; /* 使其水平居中 */
+            overflow: hidden;
+        }
+
+        /* 轮播视频内部容器样式 */
+       .carousel-inner {
+            width: 300%; /* 因为有三个视频，宽度调整为 300% */
+            transition: transform 0.5s ease;
+            display: flex;
+        }
+
+        /* 单个轮播项样式 */
+       .carousel-item {
+            width: 33.33%; /* 每个轮播项占三分之一宽度 */
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        /* 视频样式 */
+       .video-item {
+            width: 100%;
+            height: auto;
+        }
+
+        /* 轮播图标题和描述容器样式 */
+       .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* 轮播图上一张按钮样式 */
+       .carousel-control-prev,
+        /* 轮播图下一张按钮样式 */
+       .carousel-control-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            text-decoration: none;
+            font-size: 2em;
+        }
+
+        /* 轮播图上一张按钮位置 */
+       .carousel-control-prev {
+            left: 10px;
+        }
+
+        /* 轮播图下一张按钮位置 */
+       .carousel-control-next {
+            right: 10px;
+        }
+
+        /* 服务板块样式 */
+       .service-section {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px 0;
+        }
+
+        /* 单个服务项样式 */
+       .service-item {
+            text-align: center;
+            width: 20%;
+        }
+
+        /* 服务项图标样式 */
+       .service-item img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* 服务项文本说明样式 */
+       .service-text h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        /* 服务项描述文本样式 */
+       .service-text p {
+            font-size: 0.9em;
+        }
+
+        /* 服务项操作按钮样式 */
+       .service-item button {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /* 欢迎信息样式 */
+       .welcome {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 12px; /* 缩小字体 */
+            color: black; /* HEI色字体 */
+            z-index: 1; /* 提升层级，确保显示在视频上方 */
+        }
+
+        /* 箭头样式 */
+       .carousel-control-prev::after {
+            content: '←';
+        }
+       .carousel-control-next::after {
+            content: '→';
+        }
+       .carousel-control-prev span,
+       .carousel-control-next span {
+            display: none; /* 隐藏原有的文字 */
+        }
+
+

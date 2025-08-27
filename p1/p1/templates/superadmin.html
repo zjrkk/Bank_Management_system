@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>超级管理员管理页</title>
+    <link rel="stylesheet" href="{% static 'css/superadmin.css' %}">
+</head>
+<body>
+    <h1>用户信息管理</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>卡号</th>
+                <th>余额</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in page_obj %}
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.cardid}}</td>
+                <td>{{user.money}}</td>
+                <td>
+                    <a href="{% url 'edit_user' user.id %}">编辑</a> |
+                    <a href="{% url 'delete_user' user.id %}">删除</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- 分页 -->
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">上一页</a>
+        {% endif %}
+        <span>第 {{ page_obj.number }} 页，共 {{ page_obj.paginator.num_pages }} 页</span>
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">下一页</a>
+        {% endif %}
+    </div>
+
+    <a class="add-btn" href="{% url 'add_user' %}">新增用户</a>
+</body>
+</html>

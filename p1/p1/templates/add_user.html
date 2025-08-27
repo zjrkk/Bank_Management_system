@@ -1,0 +1,63 @@
+<!-- add_user.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/component.css' %}">
+    <style>
+        :root {
+            --background-image: url("{% static 'images/demo-1-bg.jpg' %}");
+        }
+
+
+    .large-header {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: var(--background-image) no-repeat center center;
+        background-size: cover;
+        overflow: hidden;
+    }
+</style>
+
+
+</head>
+<body>
+    <!-- 粒子背景层 -->
+    <div class="large-header" id="large-header">
+        <canvas id="demo-canvas"></canvas>
+    </div>
+
+
+<!-- 登录表单内容 -->
+<div class="login-container">
+    <h2>用户注册</h2>
+    <form method="post">
+    {% csrf_token %}
+    <label>用户名：</label><input type="text" name="username" required><br>
+    <label>密码：</label><input type="password" name="password" required><br>
+    <label>卡号：</label><input type="text" name="cardid"><br>
+    <label>余额：</label><input type="number" step="0.01" name="money"><br>
+    <button type="submit">添加</button>
+</form>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</div>
+
+<!-- 粒子背景所需 JS -->
+<script src="{% static 'js/TweenLite.min.js' %}"></script>
+<script src="{% static 'js/EasePack.min.js' %}"></script>
+<script src="{% static 'js/rAF.js' %}"></script>
+<script src="{% static 'js/demo-1.js' %}"></script>
+```
+
+</body>
+</html>

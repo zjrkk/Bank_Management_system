@@ -1,0 +1,171 @@
+:root {
+            /*--primary-blue: #003366;*/
+            --primary-blue: #333333;
+            --secondary-blue: #006699;
+            --accent-gold: #FFD700;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+        }
+
+        body {
+            background: var(--light-gray);
+            font-family: 'Segoe UI', '微软雅黑', sans-serif;
+        }
+
+        /* 增强导航栏 */
+        .navbar {
+            background: var(--primary-blue);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 0 5%;
+        }
+
+        .navbar ul {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar li {
+            padding: 20px 25px;
+            transition: all 0.3s;
+        }
+
+        .navbar a {
+            color: white;
+            font-weight: 500;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: var(--accent-gold);
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s;
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        /* 用户信息面板 */
+        .user-container {
+            max-width: 1200px;
+            margin: 100px auto 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .user-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .user-label {
+            {#background: var(--secondary-blue);#}
+            background-color: #575757;
+            padding: 25px 40px;
+            color: white;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .user-label i {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        .user-info {
+            padding: 30px 40px;
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justiSfy-content: center;
+            color: white;
+            margin-right: 15px;
+        }
+
+        .info-content h3 {
+            color: var(--dark-gray);
+            margin: 0 0 5px 0;
+            font-size: 16px;
+        }
+
+        .info-content p {
+            color: var(--secondary-blue);
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* 安全增强 */
+        .password-field {
+            position: relative;
+        }
+
+        .password-field input {
+            border: none;
+            background: transparent;
+            color: var(--secondary-blue);
+            font-family: monospace;
+            font-size: 18px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .user-info {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar li {
+                padding: 15px;
+            }
+        }
+
+        /* 底部增强 */
+        .footer-bar {
+            {#background: var(--primary-blue);#}
+            color: white;
+            padding: 20px 5%;
+            margin-top: 60px;
+        }
+
+        .footer-bar ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            opacity: 0.8;
+        }

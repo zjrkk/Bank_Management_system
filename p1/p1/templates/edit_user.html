@@ -1,0 +1,170 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑用户</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/component.css' %}">
+    <style>
+        :root {
+            --background-image: url("{% static 'images/demo-1-bg.jpg' %}");
+        }
+
+        .large-header {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: var(--background-image) no-repeat center center;
+            background-size: cover;
+            overflow: hidden;
+        }
+        
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 400px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .login-container h2 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 35px;
+            cursor: pointer;
+            color: #666;
+            font-size: 14px;
+            user-select: none;
+        }
+
+        .password-toggle:hover {
+            color: #007bff;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0069d9;
+        }
+
+        .error {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 粒子背景层 -->
+    <div class="large-header" id="large-header">
+        <canvas id="demo-canvas"></canvas>
+    </div>
+
+    <!-- 编辑表单内容 -->
+    <div  style="margin-top: 20px " class="login-container">
+        <h2>编辑用户信息</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">用户名：</label>
+                <input type="text" id="username" name="username" value="{{ user.username }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">密码：</label>
+                <input type="password" id="password" name="password" value="{{ user.password }}" required>
+                <span style="margin-top: 15px" class="password-toggle" onclick="togglePassword()">显示密码</span>
+            </div>
+
+            <div class="form-group">
+                <label for="cardid">卡号：</label>
+                <input type="text" id="cardid" name="cardid" value="{{ user.cardid }}">
+            </div>
+
+            <div class="form-group">
+                <label for="money">余额：</label>
+                <input type="number" step="0.01" id="money" name="money" value="{{ user.money }}">
+            </div>
+
+            <button type="submit">保存更改</button>
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+        </form>
+    </div>
+
+    <!-- 粒子背景所需 JS -->
+    <script src="{% static 'js/TweenLite.min.js' %}"></script>
+    <script src="{% static 'js/EasePack.min.js' %}"></script>
+    <script src="{% static 'js/rAF.js' %}"></script>
+    <script src="{% static 'js/demo-1.js' %}"></script>
+
+    <!-- 密码显示/隐藏切换 -->
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleBtn = document.querySelector('.password-toggle');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = '隐藏密码';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = '显示密码';
+            }
+        }
+    </script>
+</body>
+</html>

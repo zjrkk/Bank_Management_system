@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="transaction-container">
+    <div class="transaction-card">
+        <h2 class="transaction-title">
+            <i class="fas fa-exchange-alt"></i> 创建新交易
+        </h2>
+        
+        <form method="post" class="transaction-form">
+            {% csrf_token %}
+            
+            <!-- 交易类型 -->
+            <div class="form-group">
+                <label for="{{ form.transaction_type.id_for_label }}">
+                    <i class="fas fa-list"></i> 交易类型
+                </label>
+                {{ form.transaction_type }}
+                {{ form.transaction_type.errors }}
+            </div>
+            
+            <!-- 金额输入 -->
+            <div class="form-group">
+                <label for="{{ form.amount.id_for_label }}">
+                    <i class="fas fa-money-bill-wave"></i> 金额 (元)
+                </label>
+                <div class="input-group">
+                    <span class="input-group-text">¥</span>
+                    {{ form.amount }}
+                </div>
+                {{ form.amount.errors }}
+            </div>
+            
+            <!-- 交易描述 -->
+            <div class="form-group">
+                <label for="{{ form.description.id_for_label }}">
+                    <i class="fas fa-comment"></i> 交易描述
+                </label>
+                {{ form.description }}
+                {{ form.description.errors }}
+            </div>
+            
+            <!-- 交易状态 -->
+            <div class="form-group">
+                <label for="{{ form.status.id_for_label }}">
+                    <i class="fas fa-check-circle"></i> 交易状态
+                </label>
+                {{ form.status }}
+                {{ form.status.errors }}
+            </div>
+            
+            <!-- 对方信息 -->
+            <div class="form-group">
+                <label for="{{ form.counterparty.id_for_label }}">
+                    <i class="fas fa-user"></i> 对方名称 (可选)
+                </label>
+                {{ form.counterparty }}
+                {{ form.counterparty.errors }}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.counterparty_account.id_for_label }}">
+                    <i class="fas fa-credit-card"></i> 对方账号 (可选)
+                </label>
+                {{ form.counterparty_account }}
+                {{ form.counterparty_account.errors }}
+            </div>
+            
+            <!-- 表单操作按钮 -->
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> 提交交易
+                </button>
+                <a href="{% url 'mymoney' %}" class="btn btn-secondary">
+                    <i class="fas fa-times"></i> 取消
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    /* 基础样式 */
+    .transaction-container {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px;
+    }
+    
+    .transaction-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+    }
+    
+    .transaction-title {
+        color: #2c3e50;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    /* 表单组样式 */
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #34495e;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: #3498db;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    }
+    
+    .input-group {
+        display: flex;
+    }
+    
+    .input-group-text {
+        padding: 12px;
+        background-color: #f8f9fa;
+        border: 1px solid #ddd;
+        border-right: none;
+        border-radius: 6px 0 0 6px;
+    }
+    
+    .input-group input {
+        border-radius: 0 6px 6px 0 !important;
+    }
+    
+    /* 错误提示 */
+    .errorlist {
+        color: #e74c3c;
+        margin-top: 5px;
+        padding-left: 0;
+        list-style: none;
+    }
+    
+    /* 按钮样式 */
+    .form-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+    }
+    
+    .btn-primary {
+        background-color: #3498db;
+        color: white;
+        border: none;
+    }
+    
+    .btn-primary:hover {
+        background-color: #2980b9;
+    }
+    
+    .btn-secondary {
+        background-color: #f8f9fa;
+        color: #34495e;
+        border: 1px solid #ddd;
+    }
+    
+    .btn-secondary:hover {
+        background-color: #e9ecef;
+    }
+    
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+        .transaction-container {
+            padding: 15px;
+        }
+        
+        .transaction-card {
+            padding: 20px;
+        }
+        
+        .form-actions {
+            flex-direction: column;
+        }
+        
+        .btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<!-- 如果需要前端验证可以在这里添加JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 实时金额格式验证
+    const amountInput = document.getElementById('{{ form.amount.id_for_label }}');
+    if (amountInput) {
+        amountInput.addEventListener('input', function(e) {
+            // 确保输入的是有效的金额格式
+            const value = e.target.value;
+            if (!/^\d*\.?\d{0,2}$/.test(value)) {
+                e.target.value = value.slice(0, -1);
+            }
+        });
+    }
+});
+</script>
+{% endblock %}

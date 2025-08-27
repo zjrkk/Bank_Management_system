@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/component.css' %}">
+    <style>
+        :root {
+            --background-image: url("{% static 'images/demo-1-bg.jpg' %}");
+        }
+
+        .large-header {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: var(--background-image) no-repeat center center;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        /* 新增验证码样式 */
+        .captcha-group {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .captcha-input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .captcha-img {
+            margin-left: 10px;
+            height: 40px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 粒子背景层 -->
+    <div class="large-header" id="large-header">
+        <canvas id="demo-canvas"></canvas>
+    </div>
+
+    <!-- 登录表单内容 -->
+    <div class="login-container">
+        <h2>用户登录</h2>
+        <form method="post" action="{% url 'login' %}" id="loginForm">
+            {% csrf_token %}
+            <label for="username">用户名：</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">密码：</label>
+            <input type="password" id="password" name="password" required>
+
+            <div class="captcha-group">
+                <label for="captcha">验证码：</label>
+                <input type="text" id="captcha" name="captcha" class="captcha-input" required>
+                <img id="captchaImage" class="captcha-img" src="{% url 'captcha' %}" alt="验证码" title="点击刷新">
+            </div>
+
+            <button type="submit">登录</button>
+            <a href="{% url 'superadmin' %}">超级管理员</a>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+
+    <!-- 粒子背景所需 JS -->
+    <script src="{% static 'js/TweenLite.min.js' %}"></script>
+    <script src="{% static 'js/EasePack.min.js' %}"></script>
+    <script src="{% static 'js/rAF.js' %}"></script>
+    <script src="{% static 'js/demo-1.js' %}"></script>
+
+    <!-- 新增验证码JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const captchaImage = document.getElementById('captchaImage');
+            const loginForm = document.getElementById('loginForm');
+
+            // 点击验证码图片刷新验证码
+            captchaImage.addEventListener('click', function() {
+                this.src = "{% url 'captcha' %}?t=" + new Date().getTime();
+            });
+
+            // 表单提交前验证验证码
+            loginForm.addEventListener('submit', function(e) {
+                const captchaInput = document.getElementById('captcha');
+                if (!captchaInput.value) {
+                    e.preventDefault();
+                    alert('请输入验证码');
+                    return false;
+                }
+                return true;
+            });
+        });
+    </script>
+</body>
+</html>

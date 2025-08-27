@@ -1,0 +1,275 @@
+<!-- credit.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎页面</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <style>
+        /* 信用卡板块样式 */
+        .credit-section {
+            margin: 30px auto;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .credit-cards {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            width: 280px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            background-color: #fff;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-type {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .card-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .card-number {
+            font-family: monospace;
+            letter-spacing: 2px;
+            margin: 15px 0;
+        }
+
+        .card-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .apply-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .apply-btn:hover {
+            background-color: #575757;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .card-logo {
+            height: 25px;
+            width: auto;
+        }
+
+        /* 新增的两个板块样式 */
+        .info-section {
+            margin: 40px auto;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .promo-item, .safety-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .promo-img, .safety-img {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'index' %}">首页</a></li>
+            <li><a href="{% url 'credit' %}">信用卡</a></li>
+            <li><a href="{% url 'wealth' %}">财富</a></li>
+            <li><a href="{% url 'life' %}">生活</a></li>
+            <li><a href="{% url 'mine' %}">我的</a></li>
+        </ul>
+    </nav>
+
+
+
+    <!-- 信用卡板块 -->
+    <div class="credit-section">
+        <h2 class="section-title">推荐信用卡</h2>
+        <div class="credit-cards">
+            <!-- 信用卡1 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-type">白金卡</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
+                         alt="VISA" class="card-logo">
+                </div>
+                <div class="card-name">环球旅行白金卡</div>
+                <div class="card-number">**** **** **** 1234</div>
+                <div class="card-details">
+                    <div>有效期: 12/25</div>
+                    <div>CVV: ***</div>
+                </div>
+                <p>境外消费3%返现，免货币转换费</p>
+                <button class="apply-btn">立即申请</button>
+            </div>
+
+            <!-- 信用卡2 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-type">金卡</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png"
+                         alt="MasterCard" class="card-logo">
+                </div>
+                <div class="card-name">购物达人金卡</div>
+                <div class="card-number">**** **** **** 5678</div>
+                <div class="card-details">
+                    <div>有效期: 09/24</div>
+                    <div>CVV: ***</div>
+                </div>
+                <p>超市购物5%返现，免年费</p>
+                <button class="apply-btn">立即申请</button>
+            </div>
+
+            <!-- 信用卡3 -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-type">普卡</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/UnionPay_logo.svg/1200px-UnionPay_logo.svg.png"
+                         alt="UnionPay" class="card-logo">
+                </div>
+                <div class="card-name">青春校园卡</div>
+                <div class="card-number">**** **** **** 9012</div>
+                <div class="card-details">
+                    <div>有效期: 06/26</div>
+                    <div>CVV: ***</div>
+                </div>
+                <p>学生专属，首年免年费</p>
+                <button class="apply-btn">立即申请</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增的信用卡优惠活动板块 -->
+    <div class="info-section">
+        <div class="info-title">📢 信用卡优惠活动</div>
+
+        <div class="promo-item">
+            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                 alt="餐饮优惠" class="promo-img">
+            <div>
+                <h3>周五美食日</h3>
+                <p>每周五在指定餐厅消费满100元立减30元，每月限2次</p>
+            </div>
+        </div>
+
+        <div class="promo-item">
+            <img src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                 alt="电影优惠" class="promo-img">
+            <div>
+                <h3>观影特惠</h3>
+                <p>每周三、六在合作影院购票享5折优惠，每月限4次</p>
+            </div>
+        </div>
+
+        <div class="promo-item">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                 alt="购物优惠" class="promo-img">
+            <div>
+                <h3>双倍积分</h3>
+                <p>即日起至本月底，线上购物享双倍积分奖励</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增的用卡安全指南板块 -->
+    <div class="info-section">
+        <div class="info-title">🔒 用卡安全指南</div>
+
+        <div class="safety-item">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                 alt="密码安全" class="safety-img">
+            <div>
+                <h3>密码保护</h3>
+                <p>请勿将密码告知他人，定期更换密码，避免使用简单数字组合</p>
+            </div>
+        </div>
+
+        <div class="safety-item">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                 alt="防盗刷" class="safety-img">
+            <div>
+                <h3>防盗刷提示</h3>
+                <p>开通交易短信提醒，发现异常交易立即联系银行冻结卡片</p>
+            </div>
+        </div>
+
+        <div class="safety-item">
+            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                 alt="网络支付" class="safety-img">
+            <div>
+                <h3>安全支付</h3>
+                <p>网络支付时确认网站安全性，避免在公共WiFi下进行支付操作</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <footer class="navbar footer-bar">
+        <ul>
+            <li>小组作业</li>
+            <li></li>
+            <li>银行网站</li>
+        </ul>
+    </footer>
+
+</body>
+</html>

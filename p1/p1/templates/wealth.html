@@ -1,0 +1,273 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎页面</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <style>
+        /* 财富板块样式 */
+        .wealth-section {
+            margin: 30px auto;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .wealth-products {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .product {
+            width: 280px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            background-color: #fff;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .product-type {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .product-rate {
+            font-family: monospace;
+            letter-spacing: 2px;
+            margin: 15px 0;
+            color: #e74c3c;
+            font-size: 20px;
+        }
+
+        .product-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .invest-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .invest-btn:hover {
+            background-color: #575757;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .product-icon {
+            height: 25px;
+            width: auto;
+        }
+
+        /* 信息板块样式 */
+        .info-section {
+            margin: 40px auto;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .tip-item, .news-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tip-img, .news-img {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'index' %}">首页</a></li>
+            <li><a href="{% url 'credit' %}">信用卡</a></li>
+            <li><a href="{% url 'wealth' %}">财富</a></li>
+            <li><a href="{% url 'life' %}">生活</a></li>
+            <li><a href="{% url 'mine' %}">我的</a></li>
+        </ul>
+    </nav>
+
+
+
+    <!-- 财富产品板块 -->
+    <div class="wealth-section">
+        <h2 class="section-title">热门理财产品</h2>
+        <div class="wealth-products">
+            <!-- 产品1 -->
+            <div class="product">
+                <div class="product-header">
+                    <span class="product-type">稳健型</span>
+
+                </div>
+                <div class="product-name">安心理财90天</div>
+                <div class="product-rate">预期年化 3.85%</div>
+                <div class="product-details">
+                    <div>起购金额: 1万元</div>
+                    <div>风险等级: R2</div>
+                </div>
+                <p>本金安全有保障，收益稳健可观</p>
+                <button class="invest-btn">立即购买</button>
+            </div>
+
+            <!-- 产品2 -->
+            <div class="product">
+                <div class="product-header">
+                    <span class="product-type">平衡型</span>
+
+                </div>
+                <div class="product-name">均衡配置180天</div>
+                <div class="product-rate">预期年化 5.20%</div>
+                <div class="product-details">
+                    <div>起购金额: 5万元</div>
+                    <div>风险等级: R3</div>
+                </div>
+                <p>股债均衡配置，追求稳健增长</p>
+                <button class="invest-btn">立即购买</button>
+            </div>
+
+            <!-- 产品3 -->
+            <div class="product">
+                <div class="product-header">
+                    <span class="product-type">进取型</span>
+
+                </div>
+                <div class="product-name">财富增长365天</div>
+                <div class="product-rate">预期年化 7.50%</div>
+                <div class="product-details">
+                    <div>起购金额: 10万元</div>
+                    <div>风险等级: R4</div>
+                </div>
+                <p>优质资产配置，追求更高收益</p>
+                <button class="invest-btn">立即购买</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 财富小贴士板块 -->
+    <div class="info-section">
+        <div class="info-title">💡 财富增值小贴士</div>
+
+        <div class="tip-item">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                 alt="资产配置" class="tip-img">
+            <div>
+                <h3>合理资产配置</h3>
+                <p>根据自身风险承受能力，合理分配资金到不同风险等级的产品中</p>
+            </div>
+        </div>
+
+        <div class="tip-item">
+            <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                 alt="长期投资" class="tip-img">
+            <div>
+                <h3>长期投资理念</h3>
+                <p>避免频繁操作，坚持长期投资，享受复利增长带来的财富效应</p>
+            </div>
+        </div>
+
+        <div class="tip-item">
+            <img src="https://images.unsplash.com/photo-1535320903710-d993d3d77d29?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                 alt="分散投资" class="tip-img">
+            <div>
+                <h3>分散投资原则</h3>
+                <p>不要把所有的鸡蛋放在一个篮子里，分散投资降低风险</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 财经资讯板块 -->
+    <div class="info-section">
+        <div class="info-title">📈 最新财经资讯</div>
+
+        <div class="news-item">
+            <img src="https://images.unsplash.com/photo-1468254095679-bbcba94a7066?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                 alt="市场分析" class="news-img">
+            <div>
+                <h3>二季度市场展望</h3>
+                <p>专家分析认为，二季度A股市场将维持震荡上行趋势，建议关注科技和消费板块</p>
+            </div>
+        </div>
+
+        <div class="news-item">
+            <img src="https://images.unsplash.com/photo-1535320903710-d993d3d77d29?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                 alt="政策解读" class="news-img">
+            <div>
+                <h3>最新货币政策解读</h3>
+                <p>央行维持稳健货币政策，市场流动性保持合理充裕，利好债市和权益市场</p>
+            </div>
+        </div>
+
+        <div class="news-item">
+            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                 alt="投资策略" class="news-img">
+            <div>
+                <h3>资产配置新策略</h3>
+                <p>后疫情时代，建议增加对医疗健康和数字经济领域的配置比例</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <footer class="navbar footer-bar">
+        <ul>
+          <li>小组作业</li>
+            <li></li>
+            <li>银行网站</li>
+        </ul>
+    </footer>
+
+</body>
+</html>
