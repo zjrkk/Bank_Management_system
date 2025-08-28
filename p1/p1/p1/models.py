@@ -4,15 +4,6 @@ from django.utils import timezone
 from django.db import models
 from django.utils import timezone
 import uuid
-class Xue_Xi_Biao(models.Model):
-    name = models.CharField(max_length=200)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table = 'Xue_Xi_Biao'
 
 
 class UserMsg(models.Model):
@@ -29,7 +20,21 @@ class UserMsg(models.Model):
         db_table = 'UserMsg'
 
 
-from django.db import models
+
+
+
+class News(models.Model):
+    news_id = models.AutoField(primary_key=True)      # 主键，自增
+    title = models.CharField(max_length=255)          # 新闻标题
+    source = models.CharField(max_length=255)         # 新闻来源
+    publish_date = models.DateTimeField()             # 发布时间
+    url = models.URLField()                           # 新闻链接
+
+    def __str__(self):
+        return f"[{self.news_id}] {self.title}"
+
+
+
 from django.utils import timezone
 import random
 

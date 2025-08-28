@@ -1,24 +1,24 @@
 import datetime
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import UserMsg
+from .models import UserMsg, Transaction, News
 from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from .models import UserMsg, Transaction
+
 from django.http import JsonResponse
 from django.core.serializers.json import DjangoJSONEncoder
 import datetime
 from django.utils import timezone
 import random
-from .models import UserMsg, Transaction
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import UserMsg, Transaction
 from .forms import TransactionForm
 from django.http import JsonResponse
 # 数据库操作
-from TestModel.models import Test
+# from TestModel.models import Test是否需要删除
 
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -48,92 +48,26 @@ def login_view(request):
     return render(request, 'login.html')
 # 首页视图——导航栏第一个板块
 def index_view(request):
-    username = request.session.get('username', '游客')  # 从 session 取用户名，没有就显示“游客”
-    # 这里用你 index 视图里的新闻数据
-    news_data = [
-        {
-            'id': 1,
-            'title': '加快科技创新，亟待金融再发力（财经眼）——加快构建科技金融体制大家谈',
-            'source': '环球网',
-            'publish_date': '2025-05-07 18:34',
-            'url': 'https://finance.sina.com.cn/jjxw/2025-06-16/doc-infafyah3215063.shtml'
-        },
-        {
-            'id': 2,
-            'title': '深度解读5月金融数据，谁是社融多增的最大“功臣”',
-            'source': '北京商报官方账号',
-            'publish_date': '2025-05-07 09:59',
-            'url': 'https://news.qq.com/rain/a/20250614A022U600'
-        },
-        {
-            'id': 3,
-            'title': '以金融和公用事业为主要配置',
-            'source': '南京晨报 ',
-            'publish_date': '2025-05-07 16:07',
-            'url': 'https://www.msn.cn/zh-cn/news/other/%E4%BB%A5%E9%87%91%E8%9E%8D%E5%92%8C%E5%85%AC%E7%94%A8%E4%BA%8B%E4%B8%9A%E4%B8%BA%E4%B8%BB%E8%A6%81%E9%85%8D%E7%BD%AE/ar-AA1GLpRw?ocid=feedsansarticle'
-        },
-        {
-            'id': 4,
-            'title': '王沪宁在两岸融合发展示范区建设专题推进会上强调 高质量建设两岸融合发展示范区',
-            'source': '新华社',
-            'publish_date': '2025-05-08 15:57',
-            'url': 'https://www.financialnews.com.cn/2025-06/16/content_427314.html'
-        },
-        {
-            'id': 5,
-            'title': '2025年一季度银行业运行情况分析报告',
-            'source': '中国人民银行',
-            'publish_date': '2025-04-30 10:20',
-            'url': 'https://example.com/news5'
-        },
-        {
-            'id': 6,
-            'title': '数字人民币应用场景再拓展，覆盖更多民生领域',
-            'source': '经济日报',
-            'publish_date': '2025-04-28 14:35',
-            'url': 'https://example.com/news6'
-        },
-        {
-            'id': 7,
-            'title': '多元金融板块异动拉升，弘业期货涨停',
-            'source': '每日经济新闻',
-            'publish_date': '2025-04-25 09:10',
-            'url': 'https://www.msn.cn/zh-cn/news/other/%E5%A4%9A%E5%85%83%E9%87%91%E8%9E%8D%E6%9D%BF%E5%9D%97%E5%BC%82%E5%8A%A8%E6%8B%89%E5%8D%87-%E5%BC%98%E4%B8%9A%E6%9C%9F%E8%B4%A7%E6%B6%A8%E5%81%9C/ar-AA1GLHJU?ocid=BingNewsLanding&cvid=9985df5ebca944a38b48847ec3e36154&ei=12'
-        },
-        {
-            'id': 8,
-            'title': '【开源非银高超团队】关注陆家嘴金融论坛表态，港交所受益于金融开放',
-            'source': '市场资讯',
-            'publish_date': '2025-04-20 16:42',
-            'url': 'https://finance.sina.com.cn/roll/2025-06-15/doc-infaeftf8558079.shtml'
-        },
-        {
-            'id': 9,
-            'title': '中国排名前二十的金融学家：思想领航，智启未来 ',
-            'source': '人民网',
-            'publish_date': '2025-06-16 11:21',
-            'url': 'https://www.sohu.com/a/904766945_121261015'
-        },
-        {
-            'id': 10,
-            'title': '推动科技和金融“双向奔赴”——四部门详解15项科技金融政策举措',
-            'source': '新华社',
-            'publish_date': '2025-05-23 07:23 ',
-            'url': 'https://www.gov.cn/zhengce/202505/content_7024946.htm'
-        }
-    ]
+    # 取出 session 的用户名
+    username = request.session.get('username', '（您的账号已下线，请重新登录）')
+
+    # 从数据库查询所有新闻，按发布时间倒序排列
+    news_data = News.objects.all().order_by('-publish_date')
+
+    # 使用分页器，每页显示 3 条新闻
     paginator = Paginator(news_data, 3)
     page = request.GET.get('page')
+
     try:
         news = paginator.page(page)
     except PageNotAnInteger:
-        news = paginator.page(1)
+        news = paginator.page(1)  # 如果 page 不是整数，返回第 1 页
     except EmptyPage:
-        news = paginator.page(paginator.num_pages)
+        news = paginator.page(paginator.num_pages)  # 如果超出范围，返回最后一页
 
     context = {
-        'username': username,  # 把 username 传给模板
-        'news': news,
+        'username': username,
+        'news': news,   # 注意这里直接传分页后的 news 对象
     }
     return render(request, 'index.html', context)
 
