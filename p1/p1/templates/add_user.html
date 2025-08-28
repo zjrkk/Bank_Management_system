@@ -25,30 +25,30 @@
         background-size: cover;
         overflow: hidden;
     }
-</style>
+    </style>
 
 
 </head>
 <body>
-    <!-- 粒子背景层 -->
-    <div class="large-header" id="large-header">
-        <canvas id="demo-canvas"></canvas>
-    </div>
+<!-- 粒子背景层 -->
+<div class="large-header" id="large-header">
+    <canvas id="demo-canvas"></canvas>
+</div>
 
 
 <!-- 登录表单内容 -->
 <div class="login-container">
     <h2>用户注册</h2>
     <form method="post">
-    {% csrf_token %}
-    <label>用户名：</label><input type="text" name="username" required><br>
-    <label>密码：</label><input type="password" name="password" required><br>
-    <label>卡号：</label><input type="text" name="cardid"><br>
-    <label>余额：</label><input type="number" step="0.01" name="money"><br>
-    <button type="submit">添加</button>
-</form>
+        {% csrf_token %}
+        <label>用户名：</label><input type="text" name="username" required><br>
+        <label>密码：</label><input type="password" name="password" required><br>
+        <label>卡号：</label><input type="text" name="cardid"><br>
+        <label>余额：</label><input type="number" step="0.01" name="money"><br>
+        <button type="submit">添加</button>
+    </form>
     {% if error %}
-        <p class="error">{{ error }}</p>
+    <p class="error">{{ error }}</p>
     {% endif %}
 </div>
 

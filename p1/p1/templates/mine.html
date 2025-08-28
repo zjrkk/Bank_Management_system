@@ -7,176 +7,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的账户 | 数字银行</title>
     <style>
-<!--        :root {-->
-<!--            &#45;&#45;primary-blue: #003366;-->
-<!--            &#45;&#45;secondary-blue: #006699;-->
-<!--            &#45;&#45;accent-gold: #FFD700;-->
-<!--            &#45;&#45;light-gray: #f5f5f5;-->
-<!--            &#45;&#45;dark-gray: #333333;-->
-<!--        }-->
+        <!--        :root {-->
+        <!--            &#45;&#45;primary-blue: #003366;-->
+        <!--            &#45;&#45;secondary-blue: #006699;-->
+        <!--            &#45;&#45;accent-gold: #FFD700;-->
+        <!--            &#45;&#45;light-gray: #f5f5f5;-->
+        <!--            &#45;&#45;dark-gray: #333333;-->
+        <!--        }-->
 
-<!--        body {-->
-<!--            background: var(&#45;&#45;light-gray);-->
-<!--            font-family: 'Segoe UI', '微软雅黑', sans-serif;-->
-<!--        }-->
+        <!--        body {-->
+        <!--            background: var(&#45;&#45;light-gray);-->
+        <!--            font-family: 'Segoe UI', '微软雅黑', sans-serif;-->
+        <!--        }-->
 
-<!--        /* 增强导航栏 */-->
-<!--        .navbar {-->
-<!--            background: var(&#45;&#45;primary-blue);-->
-<!--            box-shadow: 0 2px 10px rgba(0,0,0,0.1);-->
-<!--            padding: 0 5%;-->
-<!--        }-->
+        <!--        /* 增强导航栏 */-->
+        <!--        .navbar {-->
+        <!--            background: var(&#45;&#45;primary-blue);-->
+        <!--            box-shadow: 0 2px 10px rgba(0,0,0,0.1);-->
+        <!--            padding: 0 5%;-->
+        <!--        }-->
 
-<!--        .navbar ul {-->
-<!--            max-width: 1200px;-->
-<!--            margin: 0 auto;-->
-<!--        }-->
+        <!--        .navbar ul {-->
+        <!--            max-width: 1200px;-->
+        <!--            margin: 0 auto;-->
+        <!--        }-->
 
-<!--        .navbar li {-->
-<!--            padding: 20px 25px;-->
-<!--            transition: all 0.3s;-->
-<!--        }-->
+        <!--        .navbar li {-->
+        <!--            padding: 20px 25px;-->
+        <!--            transition: all 0.3s;-->
+        <!--        }-->
 
-<!--        .navbar a {-->
-<!--            color: white;-->
-<!--            font-weight: 500;-->
-<!--            font-size: 16px;-->
-<!--            position: relative;-->
-<!--        }-->
+        <!--        .navbar a {-->
+        <!--            color: white;-->
+        <!--            font-weight: 500;-->
+        <!--            font-size: 16px;-->
+        <!--            position: relative;-->
+        <!--        }-->
 
-<!--        .navbar a:hover {-->
-<!--            color: var(&#45;&#45;accent-gold);-->
-<!--        }-->
+        <!--        .navbar a:hover {-->
+        <!--            color: var(&#45;&#45;accent-gold);-->
+        <!--        }-->
 
-<!--        .navbar a::after {-->
-<!--            content: '';-->
-<!--            position: absolute;-->
-<!--            bottom: -5px;-->
-<!--            left: 0;-->
-<!--            width: 0;-->
-<!--            height: 2px;-->
-<!--            background: var(&#45;&#45;accent-gold);-->
-<!--            transition: width 0.3s;-->
-<!--        }-->
+        <!--        .navbar a::after {-->
+        <!--            content: '';-->
+        <!--            position: absolute;-->
+        <!--            bottom: -5px;-->
+        <!--            left: 0;-->
+        <!--            width: 0;-->
+        <!--            height: 2px;-->
+        <!--            background: var(&#45;&#45;accent-gold);-->
+        <!--            transition: width 0.3s;-->
+        <!--        }-->
 
-<!--        .navbar a:hover::after {-->
-<!--            width: 100%;-->
-<!--        }-->
+        <!--        .navbar a:hover::after {-->
+        <!--            width: 100%;-->
+        <!--        }-->
 
-<!--        /* 用户信息面板 */-->
-<!--        .user-container {-->
-<!--            max-width: 1200px;-->
-<!--            margin: 100px auto 40px;-->
-<!--            background: white;-->
-<!--            border-radius: 15px;-->
-<!--            box-shadow: 0 5px 25px rgba(0,0,0,0.1);-->
-<!--            overflow: hidden;-->
-<!--            position: relative;-->
-<!--            transition: transform 0.3s;-->
-<!--        }-->
+        <!--        /* 用户信息面板 */-->
+        <!--        .user-container {-->
+        <!--            max-width: 1200px;-->
+        <!--            margin: 100px auto 40px;-->
+        <!--            background: white;-->
+        <!--            border-radius: 15px;-->
+        <!--            box-shadow: 0 5px 25px rgba(0,0,0,0.1);-->
+        <!--            overflow: hidden;-->
+        <!--            position: relative;-->
+        <!--            transition: transform 0.3s;-->
+        <!--        }-->
 
-<!--        .user-container:hover {-->
-<!--            transform: translateY(-5px);-->
-<!--        }-->
+        <!--        .user-container:hover {-->
+        <!--            transform: translateY(-5px);-->
+        <!--        }-->
 
-<!--        .user-label {-->
-<!--            {#background: var(&#45;&#45;secondary-blue);#}-->
-<!--            background-color: #575757;-->
-<!--            padding: 25px 40px;-->
-<!--            color: white;-->
-<!--            display: flex;-->
-<!--            align-items: center;-->
-<!--            cursor: pointer;-->
-<!--        }-->
+        <!--        .user-label {-->
+        <!--            {#background: var(&#45;&#45;secondary-blue);#}-->
+        <!--            background-color: #575757;-->
+        <!--            padding: 25px 40px;-->
+        <!--            color: white;-->
+        <!--            display: flex;-->
+        <!--            align-items: center;-->
+        <!--            cursor: pointer;-->
+        <!--        }-->
 
-<!--        .user-label i {-->
-<!--            font-size: 24px;-->
-<!--            margin-right: 15px;-->
-<!--        }-->
+        <!--        .user-label i {-->
+        <!--            font-size: 24px;-->
+        <!--            margin-right: 15px;-->
+        <!--        }-->
 
-<!--        .user-info {-->
-<!--            padding: 30px 40px;-->
-<!--            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);-->
-<!--            display: grid;-->
-<!--            grid-template-columns: repeat(2, 1fr);-->
-<!--            gap: 20px;-->
-<!--            border-top: 3px solid var(&#45;&#45;accent-gold);-->
-<!--        }-->
+        <!--        .user-info {-->
+        <!--            padding: 30px 40px;-->
+        <!--            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);-->
+        <!--            display: grid;-->
+        <!--            grid-template-columns: repeat(2, 1fr);-->
+        <!--            gap: 20px;-->
+        <!--            border-top: 3px solid var(&#45;&#45;accent-gold);-->
+        <!--        }-->
 
-<!--        .info-item {-->
-<!--            display: flex;-->
-<!--            align-items: center;-->
-<!--            padding: 15px;-->
-<!--            background: white;-->
-<!--            border-radius: 8px;-->
-<!--            box-shadow: 0 2px 8px rgba(0,0,0,0.05);-->
-<!--        }-->
+        <!--        .info-item {-->
+        <!--            display: flex;-->
+        <!--            align-items: center;-->
+        <!--            padding: 15px;-->
+        <!--            background: white;-->
+        <!--            border-radius: 8px;-->
+        <!--            box-shadow: 0 2px 8px rgba(0,0,0,0.05);-->
+        <!--        }-->
 
-<!--        .info-icon {-->
-<!--            width: 40px;-->
-<!--            height: 40px;-->
-<!--            background: var(&#45;&#45;primary-blue);-->
-<!--            border-radius: 50%;-->
-<!--            display: flex;-->
-<!--            align-items: center;-->
-<!--            justify-content: center;-->
-<!--            color: white;-->
-<!--            margin-right: 15px;-->
-<!--        }-->
+        <!--        .info-icon {-->
+        <!--            width: 40px;-->
+        <!--            height: 40px;-->
+        <!--            background: var(&#45;&#45;primary-blue);-->
+        <!--            border-radius: 50%;-->
+        <!--            display: flex;-->
+        <!--            align-items: center;-->
+        <!--            justify-content: center;-->
+        <!--            color: white;-->
+        <!--            margin-right: 15px;-->
+        <!--        }-->
 
-<!--        .info-content h3 {-->
-<!--            color: var(&#45;&#45;dark-gray);-->
-<!--            margin: 0 0 5px 0;-->
-<!--            font-size: 16px;-->
-<!--        }-->
+        <!--        .info-content h3 {-->
+        <!--            color: var(&#45;&#45;dark-gray);-->
+        <!--            margin: 0 0 5px 0;-->
+        <!--            font-size: 16px;-->
+        <!--        }-->
 
-<!--        .info-content p {-->
-<!--            color: var(&#45;&#45;secondary-blue);-->
-<!--            margin: 0;-->
-<!--            font-size: 18px;-->
-<!--            font-weight: 600;-->
-<!--        }-->
+        <!--        .info-content p {-->
+        <!--            color: var(&#45;&#45;secondary-blue);-->
+        <!--            margin: 0;-->
+        <!--            font-size: 18px;-->
+        <!--            font-weight: 600;-->
+        <!--        }-->
 
-<!--        /* 安全增强 */-->
-<!--        .password-field {-->
-<!--            position: relative;-->
-<!--        }-->
+        <!--        /* 安全增强 */-->
+        <!--        .password-field {-->
+        <!--            position: relative;-->
+        <!--        }-->
 
-<!--        .password-field input {-->
-<!--            border: none;-->
-<!--            background: transparent;-->
-<!--            color: var(&#45;&#45;secondary-blue);-->
-<!--            font-family: monospace;-->
-<!--            font-size: 18px;-->
-<!--        }-->
+        <!--        .password-field input {-->
+        <!--            border: none;-->
+        <!--            background: transparent;-->
+        <!--            color: var(&#45;&#45;secondary-blue);-->
+        <!--            font-family: monospace;-->
+        <!--            font-size: 18px;-->
+        <!--        }-->
 
-<!--        /* 响应式设计 */-->
-<!--        @media (max-width: 768px) {-->
-<!--            .user-info {-->
-<!--                grid-template-columns: 1fr;-->
-<!--            }-->
+        <!--        /* 响应式设计 */-->
+        <!--        @media (max-width: 768px) {-->
+        <!--            .user-info {-->
+        <!--                grid-template-columns: 1fr;-->
+        <!--            }-->
 
-<!--            .navbar li {-->
-<!--                padding: 15px;-->
-<!--            }-->
-<!--        }-->
+        <!--            .navbar li {-->
+        <!--                padding: 15px;-->
+        <!--            }-->
+        <!--        }-->
 
-<!--        /* 底部增强 */-->
-<!--        .footer-bar {-->
-<!--            {#background: var(&#45;&#45;primary-blue);#}-->
-<!--            color: white;-->
-<!--            padding: 20px 5%;-->
-<!--            margin-top: 60px;-->
-<!--        }-->
+        <!--        /* 底部增强 */-->
+        <!--        .footer-bar {-->
+        <!--            {#background: var(&#45;&#45;primary-blue);#}-->
+        <!--            color: white;-->
+        <!--            padding: 20px 5%;-->
+        <!--            margin-top: 60px;-->
+        <!--        }-->
 
-<!--        .footer-bar ul {-->
-<!--            max-width: 1200px;-->
-<!--            margin: 0 auto;-->
-<!--            display: flex;-->
-<!--            justify-content: space-between;-->
-<!--            font-size: 14px;-->
-<!--            opacity: 0.8;-->
-<!--        }-->
+        <!--        .footer-bar ul {-->
+        <!--            max-width: 1200px;-->
+        <!--            margin: 0 auto;-->
+        <!--            display: flex;-->
+        <!--            justify-content: space-between;-->
+        <!--            font-size: 14px;-->
+        <!--            opacity: 0.8;-->
+        <!--        }-->
     </style>
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
@@ -184,115 +184,109 @@
 
 </head>
 <body>
-    <!-- 顶部导航栏 -->
-    {% include 'head_nav.html' %}
+<!-- 顶部导航栏 -->
+{% include 'head_nav.html' %}
 
 
-    <!-- 用户信息面板 -->
-    <div class="user-container">
-        <div class="user-label">
-            <i class="fas fa-user-shield"></i>
-            <h2>账户概览</h2>
+<!-- 用户信息面板 -->
+<div class="user-container">
+    <div class="user-label">
+        <i class="fas fa-user-shield"></i>
+        <h2>账户概览</h2>
+    </div>
+    <div class="user-info">
+        <div class="info-item">
+            <div class="info-icon">
+                <i class="fas fa-user-tag"></i>
+            </div>
+            <div class="info-content">
+                <h3>用户名</h3>
+                <p>{{ username }}</p>
+            </div>
         </div>
-        <div class="user-info">
-            <div class="info-item">
-                <div class="info-icon">
-                    <i class="fas fa-user-tag"></i>
-                </div>
-                <div class="info-content">
-                    <h3>用户名</h3>
-                    <p>{{ username }}</p>
-                </div>
-            </div>
 
-            <!-- 修改密码显示方式，显示为点击输入 -->
-            <div class="info-item password-field">
-                <div class="info-icon">
-                    <i class="fas fa-lock"></i>
-                </div>
-                <div class="info-content">
-                    <h3>登录密码</h3>
-                    <input type="password" id="passwordDisplay" value="********" readonly>
-                </div>
+        <!-- 修改密码显示方式，显示为点击输入 -->
+        <div class="info-item password-field">
+            <div class="info-icon">
+                <i class="fas fa-lock"></i>
             </div>
-
-            <!-- 点击卡号显示事件 -->
-            <div class="info-item" onclick="showCardNumber()">
-                <div class="info-icon">
-                    <i class="fas fa-credit-card"></i>
-                </div>
-                <div class="info-content">
-                    <h3>主账户卡号</h3>
-                    <p id="card-id">{{ cardid | slice:"0:4" }} **** **** {{ cardid | slice:"-4:" }}</p>
-                </div>
+            <div class="info-content">
+                <h3>登录密码</h3>
+                <input type="password" id="passwordDisplay" value="********" readonly>
             </div>
+        </div>
 
-            <div class="info-item">
-                <div class="info-icon">
-                    <i class="fas fa-wallet"></i>
-                </div>
-                <div class="info-content">
-                    <h3>可用余额</h3>
-                    <p>¥ {{ money | floatformat:2 }}</p>
-                </div>
+        <!-- 点击卡号显示事件 -->
+        <div class="info-item" onclick="showCardNumber()">
+            <div class="info-icon">
+                <i class="fas fa-credit-card"></i>
+            </div>
+            <div class="info-content">
+                <h3>主账户卡号</h3>
+                <p id="card-id">{{ cardid | slice:"0:4" }} **** **** {{ cardid | slice:"-4:" }}</p>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-icon">
+                <i class="fas fa-wallet"></i>
+            </div>
+            <div class="info-content">
+                <h3>可用余额</h3>
+                <p>¥ {{ money | floatformat:2 }}</p>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- 弹窗模态框 -->
-    <div id="modal" style="display: none;">
-        <div id="modalContent">
-            <p>请输入登录密码以显示完整卡号</p>
-            <input type="password" id="passwordInput" placeholder="请输入密码">
-            <button onclick="verifyPassword()">确认</button>
-            <button onclick="closeModal()">取消</button>
-            <p id="error-message" style="color: red; display: none;">密码错误，请重新输入</p>
-        </div>
+<!-- 弹窗模态框 -->
+<div id="modal" style="display: none;">
+    <div id="modalContent">
+        <p>请输入登录密码以显示完整卡号</p>
+        <input type="password" id="passwordInput" placeholder="请输入密码">
+        <button onclick="verifyPassword()">确认</button>
+        <button onclick="closeModal()">取消</button>
+        <p id="error-message" style="color: red; display: none;">密码错误，请重新输入</p>
     </div>
+</div>
 
-    <!-- 底部 -->
-    <footer class="navbar footer-bar">
-        <ul>
-           <li>小组作业</li>
-            <li></li>
-            <li>银行网站</li>
-        </ul>
-    </footer>
+<!-- 尾部导航栏 -->
+{% include 'tail_nav.html' %}
 
-    <script>
-        // 显示卡号的弹窗
-        function showCardNumber() {
-            document.getElementById("modal").style.display = 'block';
+<script>
+    // 显示卡号的弹窗
+    function showCardNumber() {
+        document.getElementById("modal").style.display = 'block';
+    }
+
+    // 关闭弹窗
+    function closeModal() {
+        document.getElementById("modal").style.display = 'none';
+        document.getElementById("error-message").style.display = 'none';  // 隐藏错误提示
+    }
+
+    // 验证密码
+    function verifyPassword() {
+        var enteredPassword = document.getElementById("passwordInput").value;
+
+        // 假设后端提供的正确密码是 '{{ password }}'，这里进行简单的验证
+        var correctPassword = '{{ password }}';
+
+        if (enteredPassword === correctPassword) {
+            // 如果密码正确，显示完整卡号
+            var cardIdElement = document.getElementById("card-id");
+            var fullCardNumber = '{{ cardid }}';
+            cardIdElement.textContent = fullCardNumber;
+
+            // 同时显示登录密码
+            document.getElementById("passwordDisplay").value = '{{ password }}';
+            closeModal(); // 关闭弹窗
+        } else {
+            // 如果密码错误，显示错误提示
+            document.getElementById("error-message").style.display = 'block';
         }
-
-        // 关闭弹窗
-        function closeModal() {
-            document.getElementById("modal").style.display = 'none';
-            document.getElementById("error-message").style.display = 'none';  // 隐藏错误提示
-        }
-
-        // 验证密码
-        function verifyPassword() {
-            var enteredPassword = document.getElementById("passwordInput").value;
-
-            // 假设后端提供的正确密码是 '{{ password }}'，这里进行简单的验证
-            var correctPassword = '{{ password }}';
-
-            if (enteredPassword === correctPassword) {
-                // 如果密码正确，显示完整卡号
-                var cardIdElement = document.getElementById("card-id");
-                var fullCardNumber = '{{ cardid }}';
-                cardIdElement.textContent = fullCardNumber;
-
-                // 同时显示登录密码
-                document.getElementById("passwordDisplay").value = '{{ password }}';
-                closeModal(); // 关闭弹窗
-            } else {
-                // 如果密码错误，显示错误提示
-                document.getElementById("error-message").style.display = 'block';
-            }
-        }
-    </script>
+    }
+</script>
 </body>
 </html>
 

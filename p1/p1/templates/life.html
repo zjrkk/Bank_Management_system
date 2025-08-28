@@ -7,252 +7,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XX银行生活服务</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Microsoft YaHei', sans-serif;
-        }
-
-        body {
-            background-color: #f5f5f5;
-        }
-
-
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 2rem;
-        }
-
-        /* 轮播图 */
-        .banner {
-            height: 400px;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                        url('https://picsum.photos/1200/400') center/cover;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .banner-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* 服务分类 */
-        .services {
-            padding: 3rem 2rem;
-            background-color: white;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            color: #003366;
-            margin-bottom: 1rem;
-        }
-
-        /* 热门活动 */
-        .promotions {
-            padding: 3rem 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #333;
-        }
-
-        .promotion-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .promotion-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .promotion-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .promotion-content {
-            padding: 1.5rem;
-        }
-
-        /* 理财资讯 */
-        .finance-news {
-            padding: 3rem 2rem;
-            background-color: white;
-        }
-
-        .news-list {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .news-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .news-date {
-            background-color: #003366;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            margin-right: 1rem;
-        }
-
-        /* 页脚 */
-        footer {
-            background-color: #003366;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index2.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/life.css' %}">
+
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="{% url 'index' %}">首页</a></li>
-            <li><a href="{% url 'credit' %}">信用卡</a></li>
-            <li><a href="{% url 'wealth' %}">财富</a></li>
-            <li><a href="{% url 'life' %}">生活</a></li>
-            <li><a href="{% url 'mine' %}">我的</a></li>
-        </ul>
-    </nav>
+<!-- 导航栏 -->
+{% include 'head_nav.html' %}
 
-    <!-- 轮播图 -->
-    <section class="banner">
-        <div class="banner-content">
-            <h1>智慧金融，美好生活</h1>
-            <p>提供全方位的金融服务解决方案</p>
+<!-- 轮播图 -->
+<section class="banner">
+    <div class="banner-content">
+        <h1>智慧金融，美好生活</h1>
+        <p>提供全方位的金融服务解决方案</p>
+    </div>
+</section>
+
+<!-- 服务分类 -->
+<section class="services">
+    <div class="services-grid">
+        <div class="service-card">
+            <i class="fas fa-credit-card service-icon"></i>
+            <h3>信用卡服务</h3>
+            <p>多种信用卡选择，优惠享不停</p>
         </div>
-    </section>
+        <div class="service-card">
+            <i class="fas fa-piggy-bank service-icon"></i>
+            <h3>理财服务</h3>
+            <p>专业理财团队，助力财富增值</p>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-hand-holding-usd service-icon"></i>
+            <h3>贷款服务</h3>
+            <p>多种贷款方案，快速审批</p>
+        </div>
+    </div>
+</section>
 
-    <!-- 服务分类 -->
-    <section class="services">
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-credit-card service-icon"></i>
-                <h3>信用卡服务</h3>
-                <p>多种信用卡选择，优惠享不停</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-piggy-bank service-icon"></i>
-                <h3>理财服务</h3>
-                <p>专业理财团队，助力财富增值</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-hand-holding-usd service-icon"></i>
-                <h3>贷款服务</h3>
-                <p>多种贷款方案，快速审批</p>
+<!-- 热门活动 -->
+<section class="promotions">
+    <h2 class="section-title">热门活动</h2>
+    <div class="promotion-grid">
+        <div class="promotion-card">
+            <div class="promotion-image" style="background-image: url('https://picsum.photos/300/200')"></div>
+            <div class="promotion-content">
+                <h3>消费返现季</h3>
+                <p>刷卡消费最高返现10%</p>
+                <p class="date">2023.12.01-2023.12.31</p>
             </div>
         </div>
-    </section>
+        <!-- 更多活动卡片... -->
+    </div>
+</section>
 
-    <!-- 热门活动 -->
-    <section class="promotions">
-        <h2 class="section-title">热门活动</h2>
-        <div class="promotion-grid">
-            <div class="promotion-card">
-                <div class="promotion-image" style="background-image: url('https://picsum.photos/300/200')"></div>
-                <div class="promotion-content">
-                    <h3>消费返现季</h3>
-                    <p>刷卡消费最高返现10%</p>
-                    <p class="date">2023.12.01-2023.12.31</p>
-                </div>
+<!-- 理财资讯 -->
+<section class="finance-news">
+    <h2 class="section-title">理财资讯</h2>
+    <div class="news-list">
+        <div class="news-item">
+            <div class="news-date">12/01</div>
+            <div class="news-content">
+                <h3>年终理财规划指南</h3>
+                <p>专业分析师为您解读市场趋势</p>
             </div>
-            <!-- 更多活动卡片... -->
         </div>
-    </section>
+        <!-- 更多资讯条目... -->
+    </div>
+</section>
 
-    <!-- 理财资讯 -->
-    <section class="finance-news">
-        <h2 class="section-title">理财资讯</h2>
-        <div class="news-list">
-            <div class="news-item">
-                <div class="news-date">12/01</div>
-                <div class="news-content">
-                    <h3>年终理财规划指南</h3>
-                    <p>专业分析师为您解读市场趋势</p>
-                </div>
-            </div>
-            <!-- 更多资讯条目... -->
-        </div>
-    </section>
-
-    <!-- 页脚 -->
-     <!-- ✅ 底部导航栏结构保持一致 -->
-    <footer class="navbar footer-bar">
-        <ul>
-            <li>小组作业</li>
-            <li></li>
-            <li>银行网站</li>
-        </ul>
-    </footer>
+<!-- 尾部导航栏 -->
+{% include 'tail_nav.html' %}
 
 
-    <script>
-        // 简单的轮播图自动切换
-        let currentBanner = 0;
-        const banners = [
-            'https://picsum.photos/1200/400?random=1',
-            'https://picsum.photos/1200/400?random=2',
-            'https://picsum.photos/1200/400?random=3'
-        ];
+<script>
+    // 简单的轮播图自动切换
+    let currentBanner = 0;
+    const banners = [
+        'https://picsum.photos/1200/400?random=1',
+        'https://picsum.photos/1200/400?random=2',
+        'https://picsum.photos/1200/400?random=3'
+    ];
 
-        function changeBanner() {
-            currentBanner = (currentBanner + 1) % banners.length;
-            document.querySelector('.banner').style.backgroundImage =
-                `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banners[currentBanner]})`;
-        }
+    function changeBanner() {
+        currentBanner = (currentBanner + 1) % banners.length;
+        document.querySelector('.banner').style.backgroundImage =
+            `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banners[currentBanner]})`;
+    }
 
-        setInterval(changeBanner, 5000);
-    </script>
+    setInterval(changeBanner, 5000);
+</script>
 </body>
 </html>
